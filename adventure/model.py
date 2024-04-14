@@ -1,9 +1,4 @@
-"""Classes representing Adventure game components.
 
-Copyright 2010-2015 Brandon Rhodes.  Licensed as free software under the
-Apache License, Version 2.0 as detailed in the accompanying README.txt.
-
-"""
 class Move(object):
     """An entry in the travel table."""
 
@@ -84,7 +79,6 @@ class Room(object):
         return not self.is_light
 
 class Word(object):
-    """A word that can be used as part of a command."""
 
     text = None
     kind = None

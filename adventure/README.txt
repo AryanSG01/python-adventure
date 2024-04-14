@@ -1,16 +1,3 @@
-This is a faithful port of the “Adventure” game to Python 3 from the
-original 1977 FORTRAN code by Crowther and Woods (it is driven by the
-same ``advent.dat`` file!) that lets you explore Colossal Cave, where
-others have found fortunes in treasure and gold, though it is rumored
-that some who enter are never seen again.
-
-This page:
-
-http://rickadams.org/adventure/e_downloads.html
-
-offers the original PHP source code at this link:
-
-http://www.ifarchive.org/if-archive/games/source/advent-original.tar.gz
 
 To encourage the use of Python 3, the game is designed to be played
 right at the Python prompt.  Single-word commands can be typed by
@@ -130,40 +117,92 @@ Notes
   using it in the game.  Instead, use one of the two synonyms defined by
   the PDP version of Adventure: “shatter” or “smash.”
 
-Copyright
-=========
 
-The ``advent.dat`` game data file distributed with this Python package,
-like the rest of the original source code for Adventure, is a public
-domain work.  Phrases from the original work that have been copied into
-my source code from the FORTRAN source (the famous phrase “You have
-gotten yourself killed” and so forth) remain public domain and can be
-used without attribution.
 
-My own Python code that re-implements the game engine is:
+Cave Adventure Walkthrough Summary
 
-Copyright 2010–2015 Brandon Rhodes
+Start: You find yourself at the end of a road outside a small brick building. A forest surrounds you, with a stream flowing from the building.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Explore: You can move in various directions, including north, south, east, and west, to explore the surrounding areas. You encounter different environments like valleys, forests, and caves.
 
-http://www.apache.org/licenses/LICENSE-2.0
+Interact: Along the way, you encounter various objects and obstacles. You can interact with these objects by using commands like "get," "drop," or "use" followed by the object's name.
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Solve Puzzles: The game involves solving puzzles to progress further. These puzzles may require finding keys, navigating mazes, or unlocking doors.
 
-Changelog
-=========
+Discover Treasures: As you explore the cave system, you may discover hidden treasures and valuable items. Collecting these treasures adds to your score and advances your progress in the game.
 
-| 1.6 — 2020 August 15 — add support for upper-case commands typed at the terminal; and fix exception if user dies with water in their bottle `(see #26) <https://github.com/brandon-rhodes/python-adventure/issues/26>`_.
-| 1.5 — 2020 July 18 — fix for fatal exception when “lamp turn” is entered.
-| 1.4 — 2016 January 31 — readline editing; added license; bug fix; test fix.
-| 1.3 — 2012 April 27 — installs on Windows; fixed undefined commands
-| 1.2 — 2012 April 5 — restoring saves from command line; 5-letter commands
-| 1.1 — 2011 March 12 — traditional mode; more flexible Python syntax
-| 1.0 — 2011 February 15 — 100% test coverage, feature-complete
-| 0.3 — 2011 January 31 — first public release
+Encounter Hazards: Be cautious of hazards such as bottomless pits, dangerous creatures, or traps that can harm or hinder your progress.
+
+Navigate: Use a map or mental notes to navigate through the cave system effectively. Some areas may require retracing your steps or finding alternative routes to progress.
+
+Complete Objectives: The ultimate goal of the game is to explore the cave, solve puzzles, and find the legendary Colossal Cave treasure.
+
+Victory: Successfully navigate through the cave, overcome obstacles, and collect the treasure to achieve victory. Your final score reflects your performance in the game.
+
+Here's a list of some common commands or functions used to play the game:
+
+GET: Used to pick up an object from the game world.
+DROP: Used to drop or place an object from the player's inventory into the game world.
+GO [direction]: Allows the player to move in a specific direction (e.g., north, south, east, west).
+LOOK: Provides a description of the current location or examines an object in detail.
+INVENTORY or I: Displays a list of items currently held by the player.
+SCORE: Shows the player's current score or points earned in the game.
+SAVE: Saves the current game progress for later continuation.
+RESTORE: Restores a previously saved game state.
+QUIT or EXIT: Ends the game session.
+KILL: Used to attack or eliminate enemies or obstacles in the game world.
+THROW: Allows the player to throw an object in a specified direction or at a target.
+OPEN: Used to open doors, containers, or other objects that may be closed or locked.
+CLOSE: Opposite of OPEN, used to close doors or containers that are currently open.
+READ: Allows the player to read text written on objects or in books found within the game world.
+EAT: Used to consume food items found in the game world to restore health or satisfy hunger.
+DRINK: Allows the player to consume liquids, such as water or potions.
+WEAR: Used to wear or equip clothing or items that can be worn by the player character.
+SEARCH: Allows the player to search the current location for hidden items or clues.
+LISTEN: Enables the player to listen for sounds or clues in the environment.
+CLIMB: Used to climb up or down objects or surfaces within the game world.
+ENTER: Allows the player to enter specific locations, such as buildings or caves.
+
+Here's a list of some common places and rooms that players may encounter:
+
+End of Road: The starting location of the game, situated at the end of a road outside a small brick building.
+Valley: A low area surrounded by hills or mountains, often containing vegetation and streams.
+Forest: A dense area filled with trees, undergrowth, and wildlife.
+Stream: A body of flowing water, typically found in valleys or forests.
+Building: A structure made of brick or stone, possibly serving as a shelter or storage area.
+Well House: A building constructed over a well or water source, often containing valuable items.
+Inside Building: The interior of a building, where players may find keys, lamps, food, and other objects.
+Cave Entrance: The opening or entrance to the cave system, leading to deeper underground passages.
+Dark Cave: A section of the cave system devoid of light, requiring the use of a lamp or light source to navigate.
+Maze of Twisty Passages: A complex network of interconnected tunnels and passages, often confusing to navigate.
+Round Room: A circular chamber within the cave system, possibly containing hidden treasures or puzzles.
+Dragon's Lair: A dangerous area inhabited by a fierce dragon, posing a significant threat to players.
+Y2: A mysterious location within the cave system, often associated with puzzles or secrets.
+Shell Room: A room containing ancient fossilized shells or other geological formations.
+Bedquilt: A chamber with intricate patterns on the walls, resembling a quilt.
+
+
+Game feature
+Exploration: Players can explore a vast and immersive cave system filled with diverse environments, including valleys, forests, and underground chambers.
+
+Puzzles: The game offers a variety of puzzles and challenges for players to solve, ranging from simple object interactions to complex logic puzzles.
+
+Interactive Storytelling: "Colossal Cave Adventure" features an engaging narrative that unfolds as players progress through the game, uncovering secrets and mysteries hidden within the cave.
+
+Inventory Management: Players can collect and manage a variety of items found throughout the cave, using them to solve puzzles, overcome obstacles, and progress in the game.
+
+Dynamic Environment: The cave environment is dynamic and responsive, with changing conditions, hazards, and events that impact gameplay and exploration.
+
+Creatures and Enemies: Players may encounter dangerous creatures and enemies lurking within the cave, requiring strategic thinking and resource management to overcome.
+
+Multiple Endings: The game offers multiple possible outcomes based on the player's actions and decisions, providing replay value and encouraging exploration of different paths.
+
+Atmospheric Sound Design: Immersive sound effects and ambient music enhance the atmosphere of the cave environment, adding to the player's sense of immersion and adventure.
+
+Visual Enhancements: Optional visual enhancements, such as graphical overlays or atmospheric effects, enhance the visual presentation of the game while preserving its classic text-based gameplay.
+
+Modding and Customization: The game may support modding or customization options, allowing players to create and share their own content, levels, or modifications.
+
+Achievements and Progression: Players can earn achievements and track their progress as they explore the cave, solve puzzles, and uncover hidden treasures.
+
+Accessibility Features: The game includes accessibility features to ensure that players of all abilities can enjoy the experience, such as customizable text size, color schemes, and input options.

@@ -1,9 +1,4 @@
-"""Routines that install Adventure commands for the Python prompt.
 
-Copyright 2010-2015 Brandon Rhodes.  Licensed as free software under the
-Apache License, Version 2.0 as detailed in the accompanying README.txt.
-
-"""
 import inspect
 
 class ReprTriggeredPhrase(object):

@@ -1,9 +1,4 @@
-"""The Adventure game.
 
-Copyright 2010-2015 Brandon Rhodes.  Licensed as free software under the
-Apache License, Version 2.0 as detailed in the accompanying README.txt.
-
-"""
 import sys
 
 if sys.version_info <= (3,):
@@ -16,24 +11,25 @@ def load_advent_dat(data):
     datapath = os.path.join(os.path.dirname(__file__), 'advent.dat')
     with open(datapath, 'r', encoding='ascii') as datafile:
         parse(data, datafile)
-
 def play(seed=None):
-    """Turn the Python prompt into an Adventure game.
-
-    With optional the `seed` argument the caller can supply an integer
-    to start the Python random number generator at a known state.
-
-    """
+    """Turn the Python prompt into an Adventure game."""
     global _game
 
     from .game import Game
     from .prompt import install_words
-
+    print("Starting game with seed:", seed)
     _game = Game(seed)
     load_advent_dat(_game)
     install_words(_game)
     _game.start()
-    print(_game.output[:-1])
+    output = _game.output[:-1]
+    print("Output from game:", output)  # Print the output
+    return output  # Return the game output
+
+
+def output(game):
+    """Return the current output of the game."""
+    return game
 
 def resume(savefile, quiet=False):
     global _game

@@ -1,14 +1,3 @@
-"""How we keep track of the state of the game.
-
-Copyright 2010-2015 Brandon Rhodes.  Licensed as free software under the
-Apache License, Version 2.0 as detailed in the accompanying README.txt.
-
-"""
-# Numeric comments scattered through this file refer to FORTRAN line
-# numbers, for those comparing this file and `advent.for`; so "#2012"
-# refers to FORTRAN line number 2012 (which you can find easily in the
-# FORTRAN using Emacs with an interactive search for newline-2012-tab,
-# that is typed C-s C-q C-j 2 0 1 2 C-i).
 
 import os
 import pickle
@@ -118,21 +107,18 @@ class Game(Data):
     def start(self):
         """Start the game."""
 
-        # For old-fashioned players, accept five-letter truncations like
-        # "inven" instead of insisting on full words like "inventory".
+       
 
         for key, value in list(self.vocabulary.items()):
             if isinstance(key, str) and len(key) > 5:
                 self.vocabulary[key[:5]] = value
 
-        # Set things going.
 
         self.chest_room = self.rooms[114]
         self.bottle.contents = self.water
-        self.yesno(self.messages[65], self.start2)  # want instructions?
+        self.yesno(self.messages[65], self.start2)
 
     def start2(self, yes):
-        """Display instructions if the user wants them."""
         if yes:
             self.write_message(1)
             self.hints[3].used = True
@@ -148,11 +134,6 @@ class Game(Data):
             treasure.prop = -1
 
         self.describe_location()
-
-    # Routines that handle the aftermath of "big" actions like movement.
-    # Although these are called at the end of each `do_command()` cycle,
-    # we place here at the top of `game.py` to mirror the order in the
-    # advent.for file.
 
     def move_to(self, newloc=None):  #2
         loc = self.loc
@@ -219,11 +200,7 @@ class Game(Data):
                           if dwarf.can_move(move)
                           and move.action is not dwarf.old_room
                           and move.action is not dwarf.room }
-            # Without stabilizing the order with a sort, the room chosen
-            # would depend on how the Room addresses in memory happen to
-            # order the rooms in the set() - and make it impossible to
-            # test the game by setting the random number generator seed
-            # and then playing through the game.
+
             locations = sorted(locations, key=attrgetter('n'))
             if locations:
                 new_room = self.choice(locations)
@@ -242,7 +219,6 @@ class Game(Data):
 
             if dwarf.is_dwarf:
                 dwarf_count += 1
-                # A dwarf cannot walk and attack at the same time.
                 if dwarf.room is dwarf.old_room:
                     dwarf_attacks += 1
                     self.knife_location = self.loc
@@ -253,7 +229,7 @@ class Game(Data):
                 pirate = dwarf
 
                 if self.loc is self.chest_room or self.chest.prop >= 0:
-                    continue  # decide that the pirate is not really here
+                    continue 
 
                 treasures = [ t for t in self.treasures if t.is_toting ]
                 if (self.platinum in treasures and self.loc.n in (100, 101)):
@@ -291,7 +267,6 @@ class Game(Data):
                 pirate.old_room = pirate.room = self.chest_room
                 pirate.has_seen_adventurer = False  # free to move
 
-        # Report what has happened.
 
         if dwarf_count == 1:
             self.write_message(4)
@@ -1730,3 +1705,4 @@ class Game(Data):
             self.write('To achieve the next higher rating '
                        'would be a neat trick!\n\nCongratulations!!\n')
         self.is_done = True
+
